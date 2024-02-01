@@ -24,6 +24,9 @@
     color: #28bdbd;
     font-size: 30px;
   }
+  .letter.clicked{
+    display:none;
+  }
   
   .guessed-letters {
     padding: 0;
