@@ -1,3 +1,30 @@
+@mixin play-again {
+    padding: 1em 3em;
+    border-radius: 50px;
+    margin-top: 1em;
+    color: #fff;
+    background: #ff8d5c;
+    font-size: 1em;
+    align-self: center;
+    outline: none;
+    border: 0;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+
+    &:active,
+    &:focus,
+    &:hover  {
+        outline: 0;
+        transform: scale(0.98);
+        filter: brightness(0.9);
+        color: white;
+      }
+
+    @content;
+}
+
 @mixin normalize {
     /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 

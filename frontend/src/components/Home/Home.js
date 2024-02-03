@@ -14,7 +14,7 @@ function Home() {
   const [remainingGuesses, setRemainingGuesses] = useState(6)
   const [currentLetter, setCurrentLetter] = useState()
   const [open, setOpen] = useState(false);
-  const [nav, setNav] = useState();
+  const [inProgress, setInProgress] = useState(null);
   const navigate = useNavigate();
 
   function inProgressHandler(currentWord) {
@@ -36,6 +36,14 @@ function Home() {
     console.log(word)
 
   }, [word]);
+  useEffect(()=>{
+    const winLink =document.getElementById("win-link")
+    if(inProgress===word.toUpperCase()){
+     winLink.classList?.add("play-again__element")
+    }
+   
+  }, [inProgress]) 
+  
 
   async function guessHandler(e) {
     e.preventDefault()
@@ -47,7 +55,7 @@ function Home() {
       if (element.toLowerCase() === e.target.value.toLowerCase()) {
         wordInProgress[index] = e.target.value
         inProgressRef.current.innerText = wordInProgress.join("")
-
+        setInProgress(wordInProgress.join(""))
         contains = true
       }
     })
@@ -57,11 +65,6 @@ function Home() {
         setOpen(true)
       }
     }
-    else if (wordInProgress.join("") === word) {
-      setNav(<NavLink to={`/dictionary/${word}`}>{`${word}: View Definition`}</NavLink>);
-    }
-
-
     clickedLetter.classList?.add("clicked")
 
   }
@@ -79,16 +82,16 @@ function Home() {
         <form className="guess-form">
           <LetterSelector guess={guessHandler} />
         </form>
-        <form>
-          <button className="play-again" type="submit">Restart</button>
-          <p>{nav}</p>
+        <form className="win-form">
+          <button className="play-again__element" type="submit">Restart</button>
+    <NavLink to={`/dictionary/${word}`} id="win-link">{`${word.toUpperCase()}: View Definition`}</NavLink>
         </form>
         <Popup open={open} position="center center" closeOnDocumentClick={false}>
           <form>
             <button className="guess__popup--close" onClick={() => window.close()}>Close</button>
             <h1>YOU LOSE</h1>
-            <NavLink to={`/dictionary/${word}`}>{`${word}: View Definition`}</NavLink>
-            <button ref={playAgainRef} className="play-again" type="submit">Play Again!</button>
+            <NavLink to={`/dictionary/${word}`} id="win-link" className="play-again__element">{`${word.toUpperCase()}: View Definition`}</NavLink>
+            <button ref={playAgainRef} className="play-again__element" type="submit">Play Again!</button>
           </form>
         </Popup>
       </div>

@@ -4,6 +4,26 @@
 
 * {
   box-sizing: border-box;
+  .win {
+    padding: 0 1em;
+    background: linear-gradient(-45deg, #ff9d64, #f5620c);
+    background-size: 400% 400%;
+    animation: gradient 2s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+  
+    50% {
+      background-position: 100% 50%;
+    }
+  
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 }
 
 body {
@@ -15,12 +35,12 @@ body {
   font-style: normal;
   font-size: 20px;
   line-height: 150%;
-  background-color: #dff6f6;
+  background-color: black;
   background-image: url("../../assets/img/bg.png");
   background-size: 800px;
   background-repeat: repeat;
   text-align: center;
-  color: #305050;
+  color:  #28bdbd;
   .logo {
     width: 70%;
     max-width: 484px;

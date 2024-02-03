@@ -13,7 +13,7 @@ function WordDefinitions(){
 },[word])
     return(
     <section className="word-definitions">
-    <NavLink to="/" onClick={() => navigate(-1)}>Go Back to Home</NavLink>
+    <NavLink to="/" onClick={() => navigate(-1)} className="play-again__element">Go Back to Home</NavLink>
     <h1>{`${word.toUpperCase()}`}</h1>
     <h3>{`Part of Speech: ${definition?.partOfSpeech}`}</h3>
     {definition?.definitions?.map((element, index)=>{
