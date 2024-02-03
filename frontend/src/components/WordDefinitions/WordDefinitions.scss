@@ -1,0 +1,17 @@
+@use "../../styles/partials/_general.scss";
+@use "../../styles/partials/_mixins.scss";
+
+.word-definitions{
+    text-align: left;
+    .word-definitions__container{
+        margin-bottom: 1rem;
+        border-bottom: 2px solid black;
+        p{
+            & span{
+                font-weight: 700;
+                text-decoration: underline;
+                color: black;
+            }
+        }
+    }
+}

@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path="/:word" element={<WordDefinitions/>}/>
+      <Route path="/dictionary/:word" element={<WordDefinitions/>}/>
     </Routes>
     </BrowserRouter>
   );
