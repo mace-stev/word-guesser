@@ -36,9 +36,9 @@
 
 
 .word-in-progress {
-  letter-spacing: 15px;
+  letter-spacing: .5rem;
   color: #28bdbd;
-  font-size: 30px;
+  font-size: 1.25rem;
 }
 
 .letter.clicked {
@@ -55,20 +55,12 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-
-.guess-form label {
-  width: 100%;
-  font-weight: normal;
-  font-size: 14px;
-  text-align: center;
-}
-
 input {
-  width: 2.25em;
+  width: 2.25rem;
   text-align: center;
-  font-size: 1.5em;
-  margin-top: 0.5em;
-  padding: 0.5em;
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
   border: 3px solid #28bdbd;
 }
 

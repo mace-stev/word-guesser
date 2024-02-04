@@ -72,13 +72,10 @@ function Home() {
     <>
       <div className="guess__container">
         <h1>
-          <img className="logo" src={img} alt="Guess The Word" />
+          <img className="logo" src={img} alt="Guess The Word logo" />
         </h1>
-        <p className="message"></p>
         <p ref={inProgressRef} className="word-in-progress"></p>
         <p className="remaining">You have <span ref={remainingGuessesSpanRef}>{remainingGuesses} guesses</span> remaining.</p>
-        <ul className="guessed-letters"></ul>
-
         <form className="guess-form">
           <LetterSelector guess={guessHandler} />
         </form>

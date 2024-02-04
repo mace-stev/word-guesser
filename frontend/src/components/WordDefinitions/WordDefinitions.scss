@@ -4,17 +4,26 @@
 .word-definitions{
     text-align: left;
     margin: 1rem;
+    .backup-link{
+        margin-top: 1rem;
+        color: white;
+        font-weight: 700;
+    }
+    h1{
+        padding-top: 0;
+        margin: 1rem 0;
+    }
     .play-again__element{
         @include play-again;
     }
     .word-definitions__container{
         margin-bottom: 1rem;
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid white;
         p{
             & span{
                 font-weight: 700;
                 text-decoration: underline;
-                color: black;
+                color: white;
             }
         }
     }
