@@ -1,0 +1,78 @@
+@use "../../styles/partials/_general.scss" as *;
+@use "../../styles/partials/_mixins.scss" as *;
+
+
+
+
+.guess__container {
+  background: radial-gradient(50% 50% at 50% 50%,
+      rgba(167, 237, 237, 0.3) 0%,
+      rgba(156, 226, 226, 0) 100%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .win-form {
+    margin: auto;
+
+    .play-again__element {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #win-link {
+      display: none;
+
+      &.play-again__element {
+        @include play-again;
+      }
+
+    }
+
+  }
+}
+
+
+.word-in-progress {
+  letter-spacing: .5rem;
+  color: #28bdbd;
+  font-size: 1.25rem;
+}
+
+.letter.clicked {
+  display: none;
+}
+
+.guessed-letters {
+  padding: 0;
+  list-style: none;
+}
+
+.guess-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+input {
+  width: 2.25rem;
+  text-align: center;
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border: 3px solid #28bdbd;
+}
+
+input:active,
+input:focus {
+  outline: 0;
+  border: 4px solid #28bdbd;
+}
+
+.play-again__element {
+  @include play-again;
+}
+
+
+
