@@ -7,7 +7,7 @@ function WordDefinitions(){
     const { word } = useParams();
     const [definition, setDefinition]= useState()
     useEffect(()=>{
-    axios.post("http://localhost:3000/words/definition",{word: word}).then((response)=>{
+    axios.post("/words/definition",{word: word}).then((response)=>{
         setDefinition(response.data)
         console.log(response.data)
     }).catch((error)=>{console.log("error getting word definition")})
