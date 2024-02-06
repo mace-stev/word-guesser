@@ -2,6 +2,9 @@
   "name": "guess-the-word",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "v18.17.1"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -21,16 +24,11 @@
   "scripts": {
     "server": "cd backend && npm start ",
     "start": "npm run server",
-    "build": "cd frontend && npm run build",
+    "build": "npm i && cd backend && npm i && cd ../frontend && npm i && npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+ 
   "browserslist": {
     "production": [
       ">0.2%",
