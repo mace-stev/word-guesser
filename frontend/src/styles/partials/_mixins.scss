@@ -1,16 +1,18 @@
 @mixin play-again {
-    padding: 1em 3em;
+    padding: 1rem 2rem;
     border-radius: 50px;
     margin-top: 1em;
     color: #fff;
     background: #ff8d5c;
-    font-size: 1em;
+    font-size: 1rem;
     align-self: center;
     outline: none;
     border: 0;
     display: block;
     text-decoration: none;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     cursor: pointer;
 
     &:active,

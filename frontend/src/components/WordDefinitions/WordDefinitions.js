@@ -16,7 +16,7 @@ function WordDefinitions(){
     <section className="word-definitions">
     <NavLink to="/" onClick={() => navigate(-1)} className="play-again__element">Go Back to Home</NavLink>
     <h1>{`${word.toUpperCase()}`}</h1>
-    <a href={`https://www.google.com/search?q=${word}`} className="backup-link">If nothing is rendered, you can continue your search here.</a>
+    <a href={`https://www.google.com/search?q=${word}`} className="backup-link" target="_blank" rel="noopener noreferrer">If nothing is rendered, you can continue your search here.</a>
     <h3>{`Part of Speech: ${definition?.partOfSpeech || "No definitions found"}`}</h3>
     {definition?.definitions?.map((element, index)=>{
         return(<div key={index} className="word-definitions__container">

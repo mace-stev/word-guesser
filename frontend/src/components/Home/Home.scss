@@ -2,7 +2,14 @@
 @use "../../styles/partials/_mixins.scss" as *;
 
 
+#popup-1{
+  width: 75%;
+    background-image: url("../../assets/img/bg.png");
+    background-color: black;
+    background-repeat: repeat;
+    background-size: 100%;
 
+}
 
 .guess__container {
   background: radial-gradient(50% 50% at 50% 50%,
@@ -13,6 +20,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  
 
   .win-form {
     margin: auto;
