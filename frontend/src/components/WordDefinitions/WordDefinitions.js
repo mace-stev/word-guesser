@@ -8,8 +8,8 @@ function WordDefinitions(){
     const [definition, setDefinition]= useState()
     useEffect(()=>{
     axios.post("/words/definition",{word: word}).then((response)=>{
-        setDefinition(response.data)
-        console.log(response.data)
+        setDefinition(response.data.meanings)
+        console.log(response.data.meanings)
     }).catch((error)=>{console.log("error getting word definition")})
 },[word])
     return(
@@ -17,15 +17,15 @@ function WordDefinitions(){
     <NavLink to="/" onClick={() => navigate(-1)} className="play-again__element">Go Back to Home</NavLink>
     <h1>{`${word.toUpperCase()}`}</h1>
     <a href={`https://www.google.com/search?q=${word}`} className="backup-link" target="_blank" rel="noopener noreferrer">If nothing is rendered, you can continue your search here.</a>
-    <h3>{`Part of Speech: ${definition?.partOfSpeech || "No definitions found"}`}</h3>
-    {definition?.definitions?.map((element, index)=>{
-        return(<div key={index} className="word-definitions__container">
-        <p><span>Definition:</span> {`${element?.definition || ""}`}</p>
-        <p><span>Synonym:</span> {`${element?.synonyms[0] || ""}`}</p>
-        <p><span>Antonym:</span> {`${element?.antonyms[0] || ""}`}</p>
-        <p><span>Example:</span> {`${element?.example || ""}`}</p>
-        </div>)
-    })}
+        <div className="word-definitions__container">
+        <p><span>Noun Meaning:</span> {`${definition?.noun || ""}`}</p>
+        <p><span>Verb Meaning:</span> {`${definition?.verb || ""}`}</p>
+        <p><span>Adjective Meaning:</span> {`${definition?.adjective || ""}`}</p>
+        <p><span>Adverb Meaning:</span> {`${definition?.adverb || ""}`}</p>
+        <p><span>Example 1:</span> {`${definition?.examples[0] || ""}`}</p>
+        <p><span>Example 2:</span> {`${definition?.examples[1] || ""}`}</p>
+
+        </div>
     
     </section>)
 }

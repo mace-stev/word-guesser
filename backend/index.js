@@ -6,6 +6,7 @@ app.use(cors());
 const path = require('path');
 const dictionaryRoute=require('./routes/dictionaryRoute')
 const port = process.env.PORT || 3000
+require('dotenv').config()
 app.use(express.json())
 app.use('/words', dictionaryRoute)
   app.use(express.static(path.resolve(__dirname, '../frontend', 'build')));
