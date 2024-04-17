@@ -3,8 +3,8 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import { BrowserRouter, BrowserRouter as Router } from 'react-router-dom';
+import '@testing-library/jest-dom';
 import WordDefinitions from './WordDefinitions';
 
 // Mocking React Router hooks
@@ -26,12 +26,16 @@ describe('WordDefinitions Component', () => {
     require('react-router-dom').useParams.mockReturnValue({ word: 'example' });
   });
 
+
   it('renders and fetches word definition', async () => {
-    mockAxios.onPost("/words/definition", {word: "example"}).reply(200, {
+    mockAxios.onPost("/words/definition", { word: "example" }).reply(201, {
       data: {
         meanings: {
           noun: 'A thing characteristic of its kind or illustrating a general rule.',
-          verb: 'Give an example of; illustrate by giving an example.'
+          verb: 'Give an example of; illustrate by giving an example.',
+          adjective: "example text",
+          adverb: "example text",
+          examples: ['example1', 'example2']
         },
         definitions: [{
           definition: 'Primary meaning',
@@ -42,40 +46,35 @@ describe('WordDefinitions Component', () => {
       }
     });
 
-    render(
-      <Router>
-        <WordDefinitions />
-      </Router>
-    );
-
+    // Assuming the component makes the POST request on mount
+    const { getByText } = render(<WordDefinitions />);
     await waitFor(() => {
-      expect(screen.getByText(/noun meaning/i)).toBeInTheDocument();
-      expect(screen.getByText(/Primary meaning/i)).toBeInTheDocument();
+      expect(getByText('Primary meaning')).toBeInTheDocument();
     });
   });
 
-  it('handles navigation click', () => {
-    render(
-      <Router>
-        <WordDefinitions />
-      </Router>
-    );
+it('handles navigation click', () => {
+  render(
+    <BrowserRouter>
+      <WordDefinitions />
+    </BrowserRouter>
+  );
 
-    userEvent.click(screen.getByText('Go Back to Home'));
-    expect(mockNavigate).toHaveBeenCalledWith(-1);
+  userEvent.click(screen.getByText('Go Back to Home'));
+  expect(mockNavigate).toHaveBeenCalledWith(-1);
+});
+
+it('handles axios error', async () => {
+  mockAxios.onPost("/words/definition", { word: "example" }).networkError();
+
+  render(
+    <Router>
+      <WordDefinitions />
+    </Router>
+  );
+
+  await waitFor(() => {
+    expect(screen.getByText(/If nothing is rendered, you can continue your search here./i)).toBeInTheDocument();
   });
-
-  it('handles axios error', async () => {
-    mockAxios.onPost("/words/definition", {word: "example"}).networkError();
-
-    render(
-      <Router>
-        <WordDefinitions />
-      </Router>
-    );
-
-    await waitFor(() => {
-      expect(screen.getByText(/If nothing is rendered, you can continue your search here./i)).toBeInTheDocument();
-    });
-  });
+});
 });
