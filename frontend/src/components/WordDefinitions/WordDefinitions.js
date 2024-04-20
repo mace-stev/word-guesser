@@ -9,6 +9,8 @@ function WordDefinitions(){
     useEffect(()=>{
     axios.post("/words/definition",{word: word}).then((response)=>{
         setDefinition(response.data)
+        console.log(response)
+        console.log(response.data)
 
     }).catch((error)=>{console.log("error getting word definition")})
 },[word])
