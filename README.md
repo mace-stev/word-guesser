@@ -17,5 +17,13 @@ This is a simple game I created merely meant to show my skills as a developer. I
 + [![Axios](https://img.shields.io/badge/Axios-56A5FF?style=plastic&logo=axios&color=5A29E4)](https://axios-http.com/)
 : Simplifies making HTTP requests for fetching data and interacting with APIs from your backend code.
 
+**Testing**
+
++ ![Jest](https://img.shields.io/badge/Jest-56A5FF?style=plastic&logo=jest&color=C21325)
++ ![Testing-Library](https://img.shields.io/badge/-TestingLibrary-%23E33332?style=plastic&logo=testing-library&logoColor=white)
+
+
+
+
 
 
