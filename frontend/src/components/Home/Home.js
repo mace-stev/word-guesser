@@ -33,7 +33,6 @@ function Home() {
 
   useEffect(() => {
     inProgressHandler(word)
-    console.log(word)
 
   }, [word]);
   useEffect(()=>{
