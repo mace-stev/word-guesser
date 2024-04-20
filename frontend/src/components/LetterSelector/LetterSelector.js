@@ -4,7 +4,7 @@ function LetterSelector({guess, currentLetter}) {
     return (<>
         {alphabet?.map((element, index) => {
             return (
-                <input type="button" id={`${element}`} name="letter" className="letter" onClick={(e) =>guess(e)} key={index+1} value={element}></input>
+                <input type="button" id={`${element}`} name="letter" className="letter" onClick={(e) =>guess(e)} key={index+1} value={element} data-testid={`letter-${element}`}></input>
               )
         })}</>)
 
