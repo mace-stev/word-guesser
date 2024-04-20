@@ -19,8 +19,8 @@ This is a simple game I created merely meant to show my skills as a developer. I
 
 **Testing**
 
-+ ![Jest](https://img.shields.io/badge/Jest-56A5FF?style=plastic&logo=jest&color=C21325)
-+ ![Testing-Library](https://img.shields.io/badge/-TestingLibrary-%23E33332?style=plastic&logo=testing-library&logoColor=white)
++ ![Jest](https://img.shields.io/badge/Jest-56A5FF?style=plastic&logo=jest&color=C21325): A javaScript testing framework designed to ensure correctness of any JavaScript codebase. It allows developers to write and run tests with a simple and clear API, providing features like a built-in test runner, assertion library, and good support for mocking, which simplifies testing asynchronous code.
++ [![Testing-Library](https://img.shields.io/badge/-TestingLibrary-%23E33332?style=plastic&logo=testing-library&logoColor=white)](https://testing-library.com/): "The Testing Library family of libraries is a very light-weight solution for testing without all the implementation details. The main utilities it provides involve querying for nodes similarly to how users would find them. In this way, testing-library helps ensure your tests give you confidence in your UI code."
 
 
 
